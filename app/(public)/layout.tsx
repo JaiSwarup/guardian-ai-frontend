@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { Flame } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -14,7 +15,20 @@ function Header() {
         </Link>
         <div className="flex items-center space-x-4">
           <Suspense fallback={<div className="h-9" />}>
-            {/* <UserMenu /> */}
+            <>
+              <Link
+                href="/about"
+                className="text-sm font-medium text-gray-700 hover:text-gray-900"
+              >
+                About
+              </Link>
+              <Button
+                asChild
+                className="bg-black hover:bg-gray-800 text-white text-sm px-4 py-2 rounded-full"
+              >
+                <Link href="/signup">Sign Up</Link>
+              </Button>
+            </>
           </Suspense>
         </div>
       </div>
