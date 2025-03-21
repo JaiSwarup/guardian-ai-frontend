@@ -5,11 +5,11 @@ import { Suspense } from "react";
 
 function Header() {
   return (
-    <header className="border-b border-gray-200">
+    <header className="border-b border-black bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center">
-          <Flame className="h-6 w-6 text-orange-500 animate-bounce repeat-[2] duration-700 delay-1000" />
-          <span className="ml-2 text-xl font-semibold text-gray-900">
+          <Flame className="h-6 w-6 text-blue-500 animate-bounce repeat-[2] duration-700 delay-1000" />
+          <span className="ml-2 text-xl font-semibold text-white">
             CodeWiz
           </span>
         </Link>
@@ -18,13 +18,13 @@ function Header() {
             <>
               <Link
                 href="/about"
-                className="text-sm font-medium text-gray-700 hover:text-gray-900"
+                className="text-sm font-medium text-gray-400 hover:text-white"
               >
                 About
               </Link>
               <Button
                 asChild
-                className="bg-black hover:bg-gray-800 text-white text-sm px-4 py-2 rounded-full"
+                className="bg-black hover:text-white text-gray-400 text-sm px-4 py-2 rounded-full"
               >
                 <Link href="/signup">Sign Up</Link>
               </Button>
