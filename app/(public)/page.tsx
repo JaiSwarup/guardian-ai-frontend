@@ -1,138 +1,120 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CreditCard, Database } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="bg-black text-white">
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8">
             <div className="sm:text-center md:max-w-5xl md:mx-auto lg:col-span-8 lg:text-left">
-              <h1 className="text-4xl font-bold text-gray-900 tracking-tight sm:text-5xl md:text-6xl">
+              <motion.h1  initial={{opacity:0,y:50}}
+             animate={{opacity:1,y:0}}
+             transition={{duration:0.5}} className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl text-orange-500">
                 GuardianAI
-                <span className="block text-orange-500 w-full">
+                <motion.span  initial={{opacity:0,y:50}}
+             animate={{opacity:1,y:0}}
+             transition={{duration:0.5,delay:0.5}} className="block text-blue-500 w-full">
                   A Community Disaster Resilience Platform (CRDP)
-                </span>
-              </h1>
-              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                GuardianAI aims to revolutionize disaster management by
-                leveraging real-time risk prediction, NLP-based crisis detection
-                from social media and emergency reports, reinforcement learning
-                for optimal evacuation planning, and intelligent relief resource
-                allocation.
-              </p>
+                </motion.span>
+              </motion.h1>
+              <motion.p  initial={{opacity:0,y:50}}
+             animate={{opacity:1,y:0}}
+             transition={{duration:0.5,delay:0.5}} className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                GuardianAI aims to revolutionize disaster management by leveraging real-time risk prediction, NLP-based crisis detection from social media and emergency reports, reinforcement learning for optimal evacuation planning, and intelligent relief resource allocation.
+              </motion.p>
               <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
+                <motion.div  initial={{opacity:0,x:-30}}
+                animate={{opacity:1,x:0}}
+                transition={{duration:0.5,delay:0.75}}>
                 <Button
                   className="bg-white hover:bg-gray-100 text-black border border-gray-200 rounded-full text-lg px-8 py-4 inline-flex items-center justify-center"
                   asChild
                 >
-                  <Link href="/signup" target="_blank">
+                  <Link  href="/signup" target="_blank">
                     Get Started
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
+                  </motion.div>
               </div>
-            </div>
-            <div className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
-              {/* <Terminal /> */}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white w-full">
+      <section className="py-16 bg-black w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-8">
-            <div>
-              <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
-                <svg viewBox="0 0 24 24" className="h-6 w-6">
-                  <path
-                    fill="currentColor"
-                    d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"
-                  />
-                </svg>
-              </div>
-              <div className="mt-5">
-                <h2 className="text-lg font-medium text-gray-900">
-                  Disaster Risk Prediction
-                </h2>
-                <p className="mt-2 text-base text-gray-500">
-                  Leverages deep learning on satellite imagery to detect floods,
-                  wildfires, and hurricanes. Integrates LSTMs &
-                  Transformer-based time-series models to predict disasters days
-                  in advance. Outputs real-time risk heatmaps to guide emergency
-                  planning.
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-10 lg:mt-0">
+            <motion.div initial={{opacity:0,x:-30}}
+             animate={{opacity:1,x:0}} transition={{duration:0.5,delay:1}} >
               <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
                 <Database className="h-6 w-6" />
               </div>
               <div className="mt-5">
-                <h2 className="text-lg font-medium text-gray-900">
-                  Social Media & Emergency Signal Detection
-                </h2>
-                <p className="mt-2 text-base text-gray-500">
-                  Analyzes crisis signals from Twitter, news reports, emergency
+                <h2 className="text-lg font-medium text-white">Disaster Risk Prediction</h2>
+                <p className="mt-2 text-base text-gray-400">
+                  Leverages deep learning on satellite imagery to detect floods, wildfires, and hurricanes. Integrates LSTMs & Transformer-based time-series models to predict disasters days in advance. Outputs real-time risk heatmaps to guide emergency planning.
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.div initial={{opacity:0,x:-30}}
+             animate={{opacity:1,x:0}} transition={{duration:0.5,delay:1}} className="mt-10 lg:mt-0">
+              <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
+                <CreditCard className="h-6 w-6" />
+              </div>
+              <div className="mt-5">
+                <h2 className="text-lg font-medium text-white">Social Media & Emergency Signal Detection</h2>
+                <p className="mt-2 text-base text-gray-400">
+                Analyzes crisis signals from Twitter, news reports, emergency
                   calls using NLP. Detects distress messages in real-time,
                   prioritizing evacuation assistance accordingly. Filters
                   misinformation using Transformer-based fake news detection
                   models.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="mt-10 lg:mt-0">
+            <motion.div initial={{opacity:0,x:-30}}
+            animate={{opacity:1,x:0}} transition={{duration:0.5,delay:1}} className="mt-10 lg:mt-0">
               <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
                 <CreditCard className="h-6 w-6" />
               </div>
               <div className="mt-5">
-                <h2 className="text-lg font-medium text-gray-900">
-                  AI-Powered Evacuation Route Optimization
-                </h2>
-                <p className="mt-2 text-base text-gray-500">
-                  Dynamically recommends safest, congestion-free evacuation
-                  routes using Graph Neural Networks (GNNs). Considers real-time
-                  traffic, infrastructure damage, and disaster impact zones.
-                  Ensures smooth and efficient evacuations with RL-based
-                  optimization.
+                <h2 className="text-lg font-medium text-white">Personalized AI Early Warning System</h2>
+                <p className="mt-2 text-base text-gray-400">
+                  Uses real-time data analysis and AI-driven risk assessment to deliver personalized early warnings. Alerts are tailored to individual needs based on location, vulnerability, and risk factors, ensuring timely and effective emergency responses.
                 </p>
               </div>
-            </div>
-            <div className="mt-10 lg:mt-0">
+            </motion.div>
+
+            <motion.div initial={{opacity:0,x:-30}}
+             animate={{opacity:1,x:0}} transition={{duration:0.5,delay:1}} className="mt-10 lg:mt-0">
               <div className="flex items-center justify-center h-12 w-12 rounded-md bg-orange-500 text-white">
                 <CreditCard className="h-6 w-6" />
               </div>
               <div className="mt-5">
-                <h2 className="text-lg font-medium text-gray-900">
-                  Personalized AI Early Warning System
-                </h2>
-                <p className="mt-2 text-base text-gray-500">
-                  Sends risk-based personalized alerts based on user mobility,
-                  accessibility needs, and behavior tracking. Uses Federated
-                  Learning (FL) to improve risk prediction while ensuring data
-                  privacy. Prioritizes alerts for vulnerable groups like
-                  elderly, disabled, and children.
+                <h2 className="text-lg font-medium text-white">AI-Powered Evacuation Route Optimization</h2>
+                <p className="mt-2 text-base text-gray-400">
+                  Dynamically recommends safest, congestion-free evacuation routes using Graph Neural Networks (GNNs). Considers real-time traffic, infrastructure damage, and disaster impact zones. Ensures smooth and efficient evacuations with RL-based optimization.
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-                Become a volunteer
-              </h2>
-              <p className="mt-3 max-w-3xl text-lg text-gray-500">
-                Join our team and make a difference in the community by
-                volunteering.
+              <h2 className="text-3xl font-bold text-white sm:text-4xl">Become a volunteer</h2>
+              <p className="mt-3 max-w-3xl text-lg text-gray-400">
+                Join our team and make a difference in the community by volunteering.
               </p>
             </div>
             <div className="mt-8 lg:mt-0 flex justify-center lg:justify-end">
